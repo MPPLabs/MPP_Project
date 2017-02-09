@@ -29,6 +29,7 @@ public class libraryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		dbConnection DBConnection = new dbConnection();
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		ServletOutputStream out = response.getOutputStream();
@@ -37,8 +38,8 @@ public class libraryServlet extends HttpServlet {
 		out.println("<head><title>Hello World</title></head>");
 		out.println("<body>");
 	//	out.println(dbConnect.getContent());
-		byte[] temp=dbConnection.getDBConnection().getBytes("UTF-8"); 
-		out.write(temp);
+		byte[] temp=DBConnection.getDBConnection().getBytes("UTF-8"); 
+		out.write(temp);;
 		out.println("</body></html>");
 	}
 

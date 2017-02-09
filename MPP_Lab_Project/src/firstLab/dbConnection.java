@@ -9,30 +9,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class dbConnection {
-	 public static String temp;
-	 public static ArrayList<String> TableName=new ArrayList<String>();
+	 private static String temp;
+	 private static ArrayList<String> TableName=new ArrayList<String>();
 	 public dbConnection()
 	 {
-		
+		 	TableName.clear();
+			TableName.add("lib_author");
+			TableName.add("lib_author_catalog");
+			TableName.add("lib_book");
+		 	TableName.add("lib_book_archive");
+		 	TableName.add("lib_book_catalog");
+		 	TableName.add("lib_book_genre");
+		 	TableName.add("lib_book_rating");
+		 	TableName.add("lib_chat");
+		 	TableName.add("lib_comment");
+		 	TableName.add("lib_message");
+		 	TableName.add("lib_genre");
+		 	TableName.add("lib_news");
+		 	TableName.add("lib_news_page");
+		 	TableName.add("lib_section");
+		 	TableName.add("lib_user");
 	 }
 	public static String getDBConnection() 
 	{ 
-		TableName.add("lib_author");
-		TableName.add("lib_author_catalog");
-		TableName.add("lib_book");
-	 	TableName.add("lib_book_archive");
-	 	TableName.add("lib_book_catalog");
-	 	TableName.add("lib_book_genre");
-	 	TableName.add("lib_book_rating");
-	 	TableName.add("lib_chat");
-	 	TableName.add("lib_comment");
-	 	TableName.add("lib_message");
-	 	TableName.add("lib_genre");
-	 	TableName.add("lib_news");
-	 	TableName.add("lib_news_page");
-	 	TableName.add("lib_section");
-	 	TableName.add("lib_user");
-		temp="";
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -48,6 +47,7 @@ public class dbConnection {
 		Connection con = null;
 		try
 		{
+			temp="";
 			//con = DriverManager.getConnection(url,user,password);
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library","root","");
 			System.out.println("Connection successfull");
