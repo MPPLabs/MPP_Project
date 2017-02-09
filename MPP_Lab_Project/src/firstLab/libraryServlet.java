@@ -30,14 +30,15 @@ public class libraryServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		ServletOutputStream out = response.getOutputStream();
 		out.println("<html>");
+		out.println("<meta charset=UTF-8>");
 		out.println("<head><title>Hello World</title></head>");
 		out.println("<body>");
 	//	out.println(dbConnect.getContent());
-		
-		out.println(dbConnection.getDBConnection());
-		out.println("dadada");
+		byte[] temp=dbConnection.getDBConnection().getBytes("UTF-8"); 
+		out.write(temp);
 		out.println("</body></html>");
 	}
 
